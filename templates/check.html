@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>오늘의 체크</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="card">
+      <h1>오늘의 체크</h1>
+      <p class="subtitle">하루를 점검하는 작은 습관</p>
+    </div>
+
+    <div class="card">
+      <div class="checklist">
+        <label class="check-item">
+          <input type="checkbox"> 📘 단어 암기
+        </label>
+
+        <label class="check-item">
+          <input type="checkbox"> 🏃 운동
+        </label>
+
+        <label class="check-item">
+          <input type="checkbox"> ✍️ 계획 완료
+        </label>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;">
+      <a href="/" style="color: var(--primary); text-decoration: none;">
+        ← 메인으로 돌아가기
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>

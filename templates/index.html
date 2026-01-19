@@ -2,113 +2,62 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>나의 자기관리 App</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont;
-      background: #f5f6fa;
-      margin: 0;
-      padding: 40px;
-    }
-    .card {
-      max-width: 600px;
-      margin: auto;
-      background: #fff;
-      padding: 28px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-    h1, h2, h3 {
-      text-align: center;
-    }
-    p {
-      text-align: center;
-      color: #555;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    li {
-      margin-bottom: 6px;
-    }
-    button {
-      margin-top: 10px;
-    }
-  </style>
+  <title>Rebekah | 오늘의 자기관리</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
-  <div class="card">
 
-    <h1>📅 오늘의 자기관리 ({{ today }})</h1>
+  <!-- ===== 封面（图片 + 文案） ===== -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
 
-    <h2>🔥 연속 자기관리 {{ streak }}일</h2>
-    <p>📊 오늘 달성률 : {{ completion_rate }}%</p>
+    <div class="hero-content">
+      <h1>Rebekah</h1>
+      <p>작은 습관이 큰 변화를 만듭니다</p>
+      <a href="#home" class="hero-btn">오늘의 자기관리 시작하기</a>
+    </div>
+  </section>
 
-    <hr style="margin:24px 0;">
+  <!-- ===== 首页入口 ===== -->
+  <div class="container" id="home">
 
-    <form method="post">
+    <!-- 可点击主标题 -->
+    <a href="/calendar" class="main-title-link">
+      <div class="main-title">
+        오늘의 자기관리
+      </div>
+    </a>
 
-      <h3>✅ 오늘의 체크</h3>
+    <!-- 四个黄色入口块 -->
+    <div class="home-grid">
 
-      <label>
-        <input type="checkbox" name="words" {% if daily[0] %}checked{% endif %}>
-        📚 단어 암기
-      </label><br>
+      <a href="/nederlands" class="home-box">
+        네델란드어
+      </a>
 
-      <label>
-        <input type="checkbox" name="sport" {% if daily[1] %}checked{% endif %}>
-        🏃 운동
-      </label><br>
+      <a href="/exercise" class="home-box">
+        운동
+      </a>
 
-      <label>
-        <input type="checkbox" name="plan" {% if daily[2] %}checked{% endif %}>
-        📝 계획 완료
-      </label>
+      <a href="/weight" class="home-box">
+        체중
+      </a>
 
-      <hr style="margin:20px 0;">
+      <a href="/worship" class="home-box">
+        가정예배
+      </a>
 
-      <h3>⚖️ 체중 기록</h3>
-
-      <input
-        name="weight"
-        type="number"
-        step="0.1"
-        placeholder="오늘 체중 (kg)"
-        style="padding:10px;border-radius:8px;border:1px solid #ddd;width:100%;"
-      >
-
-      <br><br>
-
-      <button
-        type="submit"
-        style="padding:12px 18px;border:none;border-radius:10px;
-               background:#4f46e5;color:#fff;font-size:16px;cursor:pointer;width:100%;">
-        오늘 기록 저장
-      </button>
-
-    </form>
-
-    <hr style="margin:28px 0;">
-
-    <h3>📜 체중 기록 내역</h3>
-    <ul>
-      {% for d, w in weights %}
-        <li>{{ d }} : {{ w }} kg</li>
-      {% else %}
-        <li>아직 기록이 없습니다</li>
-      {% endfor %}
-    </ul>
-
-    <hr style="margin:28px 0;">
-
-    <h3>🗓 최근 7일 달성 현황</h3>
-    <ul>
-      {% for d, p in last_7_days %}
-        <li>{{ d }} : {{ p }}%</li>
-      {% endfor %}
-    </ul>
+    </div>
 
   </div>
+
 </body>
 </html>

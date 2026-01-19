@@ -1,0 +1,117 @@
+:root {
+  --yellow: #f5e6a8;
+  --yellow-dark: #e6cf7a;
+  --text: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #fafafa;
+  color: var(--text);
+}
+
+/* ===== 封面 ===== */
+.hero {
+  position: relative;
+  height: 70vh;
+  background: url("/static/img/cover.jpg") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 46px;
+  margin-bottom: 14px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.hero-btn {
+  display: inline-block;
+  margin-top: 26px;
+  padding: 14px 30px;
+  background: #d4af37;
+  color: #2d2505;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* ===== 容器 ===== */
+.container {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+/* ===== 主标题 ===== */
+.main-title {
+  background: linear-gradient(135deg, var(--yellow), var(--yellow-dark));
+  color: #000;
+  font-size: 32px;
+  font-weight: 800;
+  text-align: center;
+  padding: 40px;
+  border-radius: 18px;
+  margin-bottom: 50px;
+}
+
+.main-title-link {
+  text-decoration: none;
+}
+
+/* ===== 首页入口 ===== */
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.home-box {
+  background: linear-gradient(135deg, var(--yellow), var(--yellow-dark));
+  color: #000;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 22px;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.home-box:hover {
+  transform: translateY(-4px);
+}
+
+/* ===== 手机 ===== */
+@media (max-width: 600px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+  }
+}

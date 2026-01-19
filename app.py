@@ -108,6 +108,23 @@ def home():
         streak=streak,
         last_7_days=last_7_days
     )
+@app.route("/check")
+def check():
+    return render_template("check.html")
+
+@app.route("/calendar")
+def calendar():
+    return render_template("calendar.html")
+@app.route("/nederlands")
+def nederlands():
+    return render_template("nederlands.html")
+@app.route("/exercise")
+def exercise():
+    return render_template("exercise.html")
+@app.route("/worship")
+def worship():
+    return render_template("worship.html")
+
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run()
